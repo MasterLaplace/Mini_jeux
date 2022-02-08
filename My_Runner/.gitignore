@@ -1,0 +1,6 @@
+.vscode
+*.out
+*.o
+my_runner
+easy.txt
+*.a
