@@ -10,12 +10,12 @@ Finite runner created with CSFML.
     -h		print the usage and quit.
 
 ### USER INTERACTIONS
-    SPACE_KEY		jump.
-    TAB_KEY		restart.
+    SPACE_KEY	    jump.
+    TAB_KEY		    restart.
     DOWN_KEY		roulade.
     ENTER_KEY		start.
-    M_KEY		mute.
-    L_KEY		demute.
+    M_KEY		    mute.
+    L_KEY		    demute.
 
 
 ### MAP  && ARGUMENTS
