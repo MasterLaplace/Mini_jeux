@@ -12,8 +12,8 @@ Finite runner created with CSFML.
 ### USER INTERACTIONS
     SPACE_KEY	    jump.
     TAB_KEY		    restart.
-    DOWN_KEY	roulade.
-    ENTER_KEY	start.
+    DOWN_KEY	    roulade.
+    ENTER_KEY	    start.
     M_KEY		    mute.
     L_KEY		    demute.
 
