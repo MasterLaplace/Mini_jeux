@@ -13,8 +13,8 @@ Finite sokoban created with Ncurses.
 
 ### USER INTERACTIONS
     SPACE_KEY	    restart.
-    ESC_KEY			quit.
-    UP_KEY			up.
+    ESC_KEY		    quit.
+    UP_KEY		    up.
     DOWN_KEY	    down.
     RIGHT_KEY	    right.
     LEFT_KEY	    left.
