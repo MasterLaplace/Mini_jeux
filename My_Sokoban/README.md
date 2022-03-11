@@ -9,7 +9,7 @@ Finite sokoban created with Ncurses.
 ### OPTIONS
     -h		print the usage and quit.
     map.txt		file representing the warehouse map, containing '#' for walls,
-			'P' for the player,  'X' for boxes and 'O' for storage locations.
+			'P' for the player, 'X' for boxes and 'O' for storage locations.
 
 ### USER INTERACTIONS
     SPACE_KEY	    restart.
