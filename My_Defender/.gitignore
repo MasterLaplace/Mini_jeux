@@ -1,0 +1,18 @@
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Executables
+*.out
+my_defender
+
+#Perso
+.vscode
+.idea
+src/linked_lists/print_list.c
+src/update/update_wheel (unused).c
+assets/images/archer_spritesheet_8bits.png
+assets/Free Game Menu Music Pack/
