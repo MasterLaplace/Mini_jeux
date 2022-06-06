@@ -1,48 +1,77 @@
 ##
 ## EPITECH PROJECT, 2022
-## B-PSU-200-REN-2-1-mysokoban-guillaume.papineau
+## B-PSU-210-REN-2-1-minishell2-guillaume.papineau
 ## File description:
 ## Makefile
 ##
 
-SRC =	load_map.c	\
-		help.c		\
-		detect_element.c	\
-		event.c		\
-		collision.c	\
-		cond_lose.c
+-include .env
+export
 
-SRC_MAIN = main.c
+SRC_DIR = src/
+
+SRC =	$(SRC_DIR)load_map.c		\
+		$(SRC_DIR)help.c			\
+		$(SRC_DIR)detect_element.c	\
+		$(SRC_DIR)event.c			\
+		$(SRC_DIR)collision.c		\
+		$(SRC_DIR)cond_lose.c 		\
+
+SRC_MAIN = $(SRC_DIR)core.c
 
 OBJ =	$(SRC:.c=.o) $(SRC_MAIN:.c=.o)
 
 NAME =	my_sokoban
 
-INCLUDE = ./include
+INCLUDE = -I ./includes
 
-FLAGS = -Wall -Wextra -g3
+LIB = ./lib/my
 
-CFLAGS =	$(FLAGS) -W -I $(INCLUDE)
+LIB_ALL = -L $(LIB) -l my
+
+CURSE = -lncurses
+
+CFLAGS =	$(FLAGS) -W $(INCLUDE)
+
+SRC_COUNT := $(words $(SRC))
+NB = 0
 
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	@make -C ./lib/my
-	@gcc $(FLAGS) -o $(NAME) $(OBJ) -L ./lib/my -l my -lncurses  \
-	&& /bin/echo -e "\e[1m" "\e[32m" "☻ GOOD" "\033[00m" \
-	|| (/bin/echo -e "\e[1m" "\e[31m" "Ø ERROR" "\033[00m" && exit 1)
+	@make -C $(LIB) $(NO_PRINT)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIB_ALL) $(CURSE) \
+	&& $(ECHO) $(BOLD) $(GREEN)"\n► BUILD SUCCESS !"$(DEFAULT) \
+	|| ($(ECHO) $(BOLD) $(RED)"\n► BUILD FAILED"$(DEFAULT) && exit 1)
 
 clean:
-	@rm -f $(OBJ)
-	@rm -f *~
-	@rm -f *#
-	@cd ./lib/my && make clean
-	@rm -f *~
-	@rm -f *#
+	@$(RM) $(OBJ)
+	@$(RM) *~
+	@$(RM) *#
+	@cd $(LIB) && make clean $(NO_PRINT)
+	@$(RM) *~
+	@$(RM) *#
+	@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" CLEAN "$(DEFAULT))
 
 fclean: clean
-	@rm -f $(NAME)
-	@cd ./lib/my && make fclean
-	@rm -f vgcore.*
+	@$(RM) $(NAME)
+	@cd $(LIB) && make fclean $(NO_PRINT)
+	@$(RM) *.gcda
+	@$(RM) *.gcno
+	@$(RM) vgcore.*
+	@($(ECHO) $(BOLD) $(GREEN)✓$(LIGHT_BLUE)" FCLEAN "$(DEFAULT))
 
 re: fclean all
+
+debug:	CFLAGS += -g
+debug:	clean $(OBJ)
+	@make debug -C $(LIB) $(NO_PRINT)
+	@$(CC) $(FLAGS) -o $(NAME) $(OBJ) $(LIB_ALL)
+
+%.o: %.c
+	@$(eval NB=$(shell echo $$(($(NB)+1))))
+	@$(CC) -c -o $@ $^ $(CFLAGS) \
+	&& python build/build.py $< $(NB) $(SRC_COUNT)
+
+.PHONY: all re clean fclean debug build_lib %.o
+.SILENT: all re clean fclean debug build_lib %.o

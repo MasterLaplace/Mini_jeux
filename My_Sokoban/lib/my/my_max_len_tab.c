@@ -5,19 +5,20 @@
 ** my_max_len_tab
 */
 
-int my_strlen(char *str);
-int my_str_two_len(char **str);
+#include "my.h"
 
-int my_max_len_tab(char **str)
+size_t my_max_len_tab(char **str)
 {
-    int len_max = 0;
-    int len = 0;
+    size_t len_max = 0;
+    size_t len = 0;
 
-    for (int i = 0; i < my_str_two_len(str); i++) {
+    if (!str)
+        return len_max;
+
+    for (size_t i = 0; i < my_two_len(str); i++) {
         len = my_strlen(str[i]);
         if (len > len_max)
             len_max += len;
     }
-
     return len_max;
 }

@@ -1,0 +1,11 @@
+key_black;850;6100
+key_white;400;12190
+skeleton;620;2688
+mummy;540;3686
+skeleton;320;4915
+lich;470;6020
+skeleton;470;7142
+death;772;7142
+skeleton;850;8908
+death;390;10828
+death;770;13400

@@ -26,7 +26,7 @@ static void shooting(game_t *game, link_t *link_enemy, tower_t *tower)
     enemy->health -= tower->damage;
     if (enemy->health <= 0) {
         game->stats->current_nb_enemy -= 1;
-        game->stats->money += 10;
+        game->stats->money += 15;
         list_remove(&(game->enemies), link_enemy);
     }
 }
@@ -67,5 +67,6 @@ void check_range(game_t *game, link_t *towers)
             targeting(game, tower);
         }
         actual = actual->next;
-    } while (towers && actual != towers);
+//        printf("%p\n", actual);
+    } while (actual && actual != towers);
 }

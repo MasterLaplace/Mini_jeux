@@ -52,13 +52,5 @@ const preset_interface_t PARAM_INTERFACE[] =
     {
         TABLE,
         (sfVector2f){477, 275}
-    },
-    {
-        TABLE,
-        (sfVector2f){477, 275}
-    },
-    {
-        TABLE,
-        (sfVector2f){477, 275}
     }
 };

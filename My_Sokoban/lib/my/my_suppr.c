@@ -5,7 +5,12 @@
 ** my_suppr
 */
 
-char *suppr(char *buf, int save)
+#include "my.h"
+
+char *my_suppr(char *str, size_t save)
 {
-    return &buf[save];
+    if (!str || save > my_strlen(str))
+        return (NULL);
+
+    return &str[save];
 }

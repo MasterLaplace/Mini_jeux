@@ -1,50 +1,52 @@
 /*
 ** EPITECH PROJECT, 2022
-** B-CPE-210-REN-2-1-solostumper04-guillaume.papineau
+** B-PSU-210-REN-2-1-minishell2-guillaume.papineau
 ** File description:
 ** my_clean_string
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
+#include "my.h"
 
-char *my_appendchar(char * str, char c);
-
-static char *verif_tab(char *str, char *dest, int i)
+static char *verif_tab(char *str, char *dest, size_t i)
 {
-    if (str == NULL || i < 0)
-        return NULL;
+    if (!str)
+        return (NULL);
 
     if (str[i] == ' ' || str[i] == '\t') {
         if (str[i + 1] == ' ' || str[i + 1] == '\t');
         else
-            return my_appendchar(dest, ' ');
+            return my_append(dest, ' ');
     } else
-        return my_appendchar(dest, str[i]);
+        return my_append(dest, str[i]);
     return dest;
 }
 
 static int verif_clean(char *str, int i)
 {
-    if (str == NULL || i < 0)
-        return 0;
+    if (!str)
+        return (0);
 
     if (str[i] == ' ' || str[i] == '\t') {
-        if (str[i + 1] == ' ' || str[i + 1] == '\t');
+        if (str[i + 1] == ' ' || str[i + 1] == '\t')
+            return (0);
         else
-            return 1;
+            return (1);
     } else
-        return 1;
+        return (1);
 }
 
-static int compt_clean(char *str)
+static size_t count_clean(char *str)
 {
-    int nbr = 0;
+    size_t nbr = 0;
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        if ((str[i] == ' ' || str[i] == '\t') && i == 0);
-        else if (str[i] == ' ' && str[i + 1] == '\0');
+    if (!str)
+        return nbr;
+
+    for (int i = 0; str[i]; i++) {
+        if ((str[i] == ' ' || str[i] == '\t') && i == 0) {
+            str = my_suppr(str, i + 1);
+            i = -1;
+        } else if (str[i] == ' ' && !str[i + 1]);
         else
             nbr += verif_clean(str, i);
     }
@@ -53,14 +55,16 @@ static int compt_clean(char *str)
 
 char *my_clean_string(char *str)
 {
-    char *dest = malloc(sizeof(char) * compt_clean(str));
+    char *dest = calloc(count_clean(str), sizeof(char));
 
-    if (str == NULL)
-        return NULL;
+    if (!str || !dest)
+        return (NULL);
 
-    for (int i = 0; str[i] != '\0'; i++) {
-        if ((str[i] == ' ' || str[i] == '\t') && i == 0);
-        else if (str[i] == ' ' && str[i + 1] == '\0');
+    for (int i = 0; str[i]; i++) {
+        if ((str[i] == ' ' || str[i] == '\t') && i == 0) {
+            str = my_suppr(str, i + 1);
+            i = -1;
+        } else if (str[i] == ' ' && !str[i + 1]);
         else
             dest = verif_tab(str, dest, i);
     }

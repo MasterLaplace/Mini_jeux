@@ -4,35 +4,28 @@
 ** File description:
 ** my
 */
+
 #ifndef MY_H_
     #define MY_H_
-    #include <SFML/Graphics.h>
-    #include "runner.h"
 
-    int my_strlen(char *str);
-    void my_putstr(char *str);
-    char *my_strcat(char *str, char *t);
-    char *my_itoa(int nb);
-    char *my_revstr(char *str);
-    char *my_strdup(char *src);
+//* It counts the number of characters in a string.
+int my_strlen(char *str);
 
-    game_obj_t *create_obj(char *path_sprt, enum t_obj type);
-    void init_pos_veloc(game_obj_t **obj);
-    void init_game(game_t *game);
-    void game_loop(game_t *game, game_obj_t **obj);
-    void menu(game_t *game, game_obj_t **obj, sfEvent event);
-    void anal_evt(game_t *game, game_obj_t **obj, sfEvent);
-    void play_sound(char *path_file);
-    void move_rect(game_t *game, game_obj_t **obj);
-    void set_rect(game_obj_t **obj);
-    void collision(game_t *game, game_obj_t **obj);
-    void move_sprite(game_t *game, game_obj_t **obj);
-    void cond_move_ennemy(game_t *game, game_obj_t **obj);
-    void cond_move_background(game_t *game, game_obj_t **obj);
-    void draw_sprite(sfRenderWindow *window, game_obj_t **obj);
-    int argue(const int ac, const char **av, game_t *game);
-    void destroy_object(game_t *game, game_obj_t **obj);
-    void init_background(game_obj_t **obj);
-    void init_sprite(game_obj_t **obj);
+//* It prints a string.
+void my_putstr(char *str);
 
+//* It concatenates two strings.
+char *my_strcat(char *str, char *t);
+
+//* It converts an integer into a string.
+char *my_itoa(int nb);
+
+//* It fills the first n bytes of the memory area pointed to by s with c.
+void *my_memset(void *s, int c, size_t n);
+
+//* It reverses a string.
+char *my_revstr(char *str);
+
+//* It duplicates a string.
+char *my_strdup(char *src);
 #endif/* MY_H_ */

@@ -5,28 +5,26 @@
 ** my_stwa
 */
 
-#include <unistd.h>
-#include <stdlib.h>
-
-char *suppr(char *buf, int save);
-int my_compt_word(char *str, char c);
-char *my_strndup(char *str, int len);
+#include "my.h"
 
 char **my_str_word_array(char *str, char c)
 {
-    int nbr = my_compt_word(str, c);
+    size_t nbr = my_count_word(str, c);
     char **tab = malloc(sizeof(char *) * (nbr + 1));
-    tab[nbr] = NULL;
-    int nb = 0;
+    size_t nb = 0;
 
-    for (int i = 0; nb < nbr; i++) {
-        if ((str[i - 1] != c) && (str[i] == c || str[i] == '\0')) {
+    if (!str || !tab)
+        return (NULL);
+
+    for (size_t i = 0; nb < nbr; i++) {
+        if (str[i] == c || !str[i]) {
             tab[nb] = my_strndup(str, i);
             nb++;
             i++;
-            str = suppr(str, i);
+            str = my_suppr(str, i);
             i = 0;
         }
     }
+    tab[nb] = NULL;
     return tab;
 }

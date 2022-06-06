@@ -4,17 +4,17 @@
 ** File description:
 ** my_strdup
 */
+#include "my.h"
 
-#include <stdlib.h>
-
-int my_strlen(char *str);
-
-char *my_strdup(char *str)
+char *my_strdup(char const *str)
 {
-    int len = my_strlen(str);
+    size_t len = my_strlen(str);
     char *tmp = malloc(sizeof(char) * (len + 1));
 
-    for (int i = 0; i < len; i++)
+    if (!str || !tmp)
+        return (NULL);
+
+    for (size_t i = 0; i < len; i++)
         tmp[i] = str[i];
     tmp[len] = '\0';
     return tmp;

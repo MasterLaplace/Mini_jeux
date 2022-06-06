@@ -22,7 +22,6 @@ static void set_preset(preset_button_tower_t *preset, sfVector2f *pos)
     preset->state = INACTIVE;
     preset->callback = &callback_tower_button;
     preset->update = &update_tower_button;
-
 }
 
 static tower_t *create_tower(sfVector2f *pos, sfTexture **textures)

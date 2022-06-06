@@ -18,6 +18,8 @@ void callback_archer_button(game_t *game, __attribute__((unused)) void *params)
         sfSound_play(game->sounds[archer_construct]->sound);
         tower->type = ARCHER;
         tower->state = LEVEL_1;
+        tower->damage = TOWERS[ARCHER].damage;
+        tower->range = TOWERS[ARCHER].range;
         sfSprite_setTexture(sprite, game->textures[ARCHER_TOWER], sfFalse);
         sfSprite_setOrigin(sprite, TOWERS[ARCHER].origin);
         sfSprite_setTextureRect(sprite, TOWERS[ARCHER].rect);

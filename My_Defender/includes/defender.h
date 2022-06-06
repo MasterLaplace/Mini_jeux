@@ -13,7 +13,6 @@
     #include <unistd.h>
     #include <stdio.h>
     #include <stdlib.h>
-    #include <stdbool.h>
     #include "enum.h"
     #include "constants.h"
     #include "presets.h"

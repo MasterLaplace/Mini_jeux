@@ -5,7 +5,7 @@
 ** my_randint
 */
 
-#include <stdlib.h>
+#include "my.h"
 
 int my_randint(int min, int max)
 {

@@ -18,6 +18,8 @@ void callback_stone_button(game_t *game, __attribute__((unused)) void *params)
         sfSound_play(game->sounds[stone_construct]->sound);
         tower->type = STONE;
         tower->state = LEVEL_1;
+        tower->damage = TOWERS[STONE].damage;
+        tower->range = TOWERS[STONE].range;
         sfSprite_setTexture(sprite, game->textures[STONE_TOWER], sfFalse);
         sfSprite_setOrigin(sprite, TOWERS[STONE].origin);
         sfSprite_setTextureRect(sprite, TOWERS[STONE].rect);

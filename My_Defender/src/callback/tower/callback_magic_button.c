@@ -18,6 +18,8 @@ void callback_magic_button(game_t *game, __attribute__((unused)) void *params)
         sfSound_play(game->sounds[magic_construct]->sound);
         tower->type = MAGIC;
         tower->state = LEVEL_1;
+        tower->damage = TOWERS[MAGIC].damage;
+        tower->range = TOWERS[MAGIC].range;
         sfSprite_setTexture(sprite, game->textures[MAGIC_TOWER], sfFalse);
         sfSprite_setOrigin(sprite, TOWERS[MAGIC].origin);
         sfSprite_setTextureRect(sprite, TOWERS[MAGIC].rect);

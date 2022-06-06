@@ -4,25 +4,25 @@
 ** File description:
 ** my_strcat
 */
+
 #include <stdlib.h>
 
 int my_strlen(char const *str);
+void *my_memset(void *s, int c, size_t n);
 
-char *my_strcat(char *str, char *t)
+char *my_strcat(char *dest, char *src)
 {
-    int i = 0;
-    char *test = malloc(sizeof(char) * (my_strlen(str) + my_strlen(t)));
+    char *tmp = malloc(sizeof(char) * (my_strlen(dest) + my_strlen(src) + 1));
+    size_t i = 0;
+    size_t e = 0;
 
-    while (t[i] != '\0') {
-        test[i] = t[i];
-        i = i + 1;
-    }
-    int e = 0;
-
-    while (str[e] != '\0') {
-        test[i] = str[e];
-        i = i + 1;
-        e = e + 1;
-    }
-    return test;
+    if (!dest || !tmp)
+        return (NULL);
+    tmp = my_memset(tmp, '\0', (my_strlen(dest) + my_strlen(src) + 1));
+    for (; src[i]; i++)
+        tmp[i] = src[i];
+    for (; dest[e]; i++, e++)
+        tmp[i] = dest[e];
+    tmp[i] = '\0';
+    return tmp;
 }

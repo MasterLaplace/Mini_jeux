@@ -76,8 +76,8 @@ wheel_t *create_wheel(game_t *game)
     wheel->state = NOT_DISPLAYED;
     wheel->buttons = init_wheel_buttons(game->textures);
     wheel->costs[0] = 100;
-    wheel->costs[1] = 100;
-    wheel->costs[2] = 100;
-    wheel->costs[3] = 100;
+    wheel->costs[1] = 200;
+    wheel->costs[2] = 150;
+    wheel->costs[3] = 200;
     return wheel;
 }

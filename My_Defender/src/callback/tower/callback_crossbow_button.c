@@ -19,6 +19,8 @@ void callback_crossbow_button(game_t *game,
         sfSound_play(game->sounds[crossbow_construct]->sound);
         tower->type = CROSSBOW;
         tower->state = LEVEL_1;
+        tower->damage = TOWERS[CROSSBOW].damage;
+        tower->range = TOWERS[CROSSBOW].range;
         sfSprite_setTexture(sprite, game->textures[CROSSBOW_TOWER], sfFalse);
         sfSprite_setOrigin(sprite, TOWERS[CROSSBOW].origin);
         sfSprite_setTextureRect(sprite, TOWERS[CROSSBOW].rect);

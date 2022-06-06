@@ -13,7 +13,7 @@ void update_game_scene(game_t *game)
         wave_enemy(game);
         move_enemies(game);
         check_range(game, game->game_scene->towers);
-        if (game->stats->nb_enemy >= 32) {
+        if (game->stats->nb_enemy >= 64) {
             destroy_enemies(game);
             destroy_towers(game);
             change_scene(game, WIN);

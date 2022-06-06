@@ -15,7 +15,7 @@ const preset_tower_t TOWERS[] =
         (sfIntRect) {0, 0, 583, 747},
         7,
         583,
-        10,
+        25,
         250
     },
     {
@@ -24,7 +24,7 @@ const preset_tower_t TOWERS[] =
         (sfIntRect) {0, 0, 1099, 754},
         14,
         1099,
-        18,
+        45,
         250
     },
     {
@@ -33,7 +33,7 @@ const preset_tower_t TOWERS[] =
         (sfIntRect) {0, 0, 562, 1962},
         28,
         562,
-        100,
+        60,
         250
     },
     {
@@ -42,7 +42,7 @@ const preset_tower_t TOWERS[] =
         (sfIntRect) {0, 0, 567, 1252},
         28,
         567,
-        100,
-        250
+        200,
+        400
     }
 };

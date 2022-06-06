@@ -7,7 +7,6 @@
 
 #include "defender.h"
 
-const int enemy_max[] = {64, 128, 256};
 extern const map_t MAPS[];
 extern const size_t NB_ENEMIES;
 extern const preset_enemy_t ENEMY[];

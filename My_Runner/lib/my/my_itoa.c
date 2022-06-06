@@ -4,35 +4,35 @@
 ** File description:
 ** my_itoa
 */
+
 #include <stdlib.h>
 #include <stdio.h>
-
-char *my_revstr(char *str);
 
 int my_int_len(int nb)
 {
     int div = 1;
     int len = 0;
 
-    while ((nb / div) >= 1) {
+    if (nb >= 0 && nb < 10)
+        return (1);
+    while (nb / div >= 1) {
         len++;
         div *= 10;
     }
     return len;
 }
 
-char *my_itoa(int nb)
+char *my_itoa(int nbr)
 {
-    int len = my_int_len(nb);
-    char *str = malloc(sizeof(char) * len);
-    int div = 10;
+    int len = my_int_len(nbr);
+    char *str = malloc(sizeof(char) * (len + 1));
 
-    if (str == NULL || len == 0)
-        return NULL;
-
+    if (!str || len == 0)
+        return (NULL);
+    str[len] = '\0';
     while (len > 0) {
-        str[len - 1] = (nb % div) + '0';
-        nb /= 10;
+        str[len - 1] = (nbr % 10) + '0';
+        nbr /= 10;
         len--;
     }
     return str;
