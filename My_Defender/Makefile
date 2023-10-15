@@ -165,7 +165,7 @@ debug: clean $(OBJ)
 %.o: %.c
 	@$(eval NB=$(shell echo $$(($(NB)+1))))
 	@$(CC) -c -o $@ $^ $(CFLAGS) \
-	&& python build/build.py $< $(NB) $(SRC_COUNT)
+	&& python3 build/build.py $< $(NB) $(SRC_COUNT)
 
 .PHONY: all re clean fclean debug build_lib %.o
 .SILENT: all re clean fclean debug build_lib %.o
